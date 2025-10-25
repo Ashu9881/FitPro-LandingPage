@@ -5,22 +5,18 @@ const chatSend = document.getElementById('chat-send');
 const chatInput = document.getElementById('chat-input');
 const chatMessages = document.getElementById('chat-messages');
 
-// Open chatbox
 chatBtn.addEventListener('click', () => {
   chatBox.style.display = 'flex';
 });
 
-// Close chatbox
 chatClose.addEventListener('click', () => {
   chatBox.style.display = 'none';
 });
 
-// Send message
 chatSend.addEventListener('click', () => {
   const msg = chatInput.value.trim();
   if(msg === '') return;
 
-  // User message
   const userMsg = document.createElement('p');
   userMsg.classList.add('user');
   userMsg.textContent = msg;
@@ -29,7 +25,6 @@ chatSend.addEventListener('click', () => {
   chatMessages.scrollTop = chatMessages.scrollHeight;
   chatInput.value = '';
 
-  // Simulated bot response
   setTimeout(() => {
     const botMsg = document.createElement('p');
     botMsg.classList.add('bot');
@@ -39,7 +34,7 @@ chatSend.addEventListener('click', () => {
   }, 800);
 });
 
-// Send on Enter key
 chatInput.addEventListener('keypress', (e) => {
   if(e.key === 'Enter') chatSend.click();
 });
+
